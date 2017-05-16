@@ -1,18 +1,3 @@
-# Introduction 
-We will be walking through several lessons using the Script Lab add-in. Our goals in this workshop will be:
-
-1.  Learn about add-ins and how to build them.
-
-2.  Build an add-in.
-
-3.  Exercise some Office JavaScript APIs to do something useful.
-
-## Requirements
-
--   Excel (the latest desktop version) or Excel Online. See Office add-in host and platform availability <https://dev.office.com/add-in-availability>
-
--   Script Lab add-in, available in Store.
-
 # Lesson 1: Warm Up
 
 
@@ -108,46 +93,3 @@ This modified code in MySnippets will only remain in the add-in memory
 until you clear your browser cache. We'll discuss saving and sharing the
 code in another lesson.
 
-## Answers
-
-1.10 Modified code to populate the range
-
-```
-$("#run").click(run);
-
-function run() {
-    Excel.run(function (context) {
-        var range = context.workbook.getSelectedRange();
-        range.format.fill.color = "yellow";
-        range.load([ "address", "values"]);
-        return context.sync()
-            .then(function () {
-                console.log("The range address was \"" + range.address + "\".");
-                return populateRange(context, range);
-
-            });
-
-    })
-        .catch(function (error) {
-            OfficeHelpers.UI.notify(error);
-            OfficeHelpers.Utilities.log(error);
-        });
-}
-
-function populateRange(context: Excel.RequestContext, range: Excel.Range) {
-    console.log("populateRange: range is - ", range.address);
-            var newValues = range.values;
-            var counter = 1;
-            for (var i = 0; i < newValues.length; i++) {
-                for (var j = 0; j < newValues[i].length; j++) {
-                    newValues[i][j] = counter++;
-                }
-            }
-            range.values = newValues;
-
-            return context.sync()
-	    .then(function () {
-			    console.log("finished populating the matrix");
-			    });
-}
-```
