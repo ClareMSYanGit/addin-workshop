@@ -1,0 +1,153 @@
+# Introduction 
+We will be walking through several lessons using the Script Lab add-in. Our goals in this workshop will be:
+
+1.  Learn about add-ins and how to build them.
+
+2.  Build an add-in.
+
+3.  Exercise some Office JavaScript APIs to do something useful.
+
+## Requirements
+
+-   Excel (the latest desktop version) or Excel Online. See Office add-in host and platform availability <https://dev.office.com/add-in-availability>
+
+-   Script Lab add-in, available in Store.
+
+# Lesson 1: Warm Up
+
+
+## Setup
+
+1.1 Open Excel (preferably the desktop version).
+
+1.2 Go to Insert > My Add-ins > the Store icon (red shopping bag).
+
+1.3 Search for "Script Lab" (with a space).
+
+1.4 Click **Add**.
+
+1.5 Click on the **Script Lab** tab and see the  **Code** and **Run** commands.
+
+
+## Running the first sample
+
+1.6 In the **Code** pane, select **Samples**.
+
+1.7 Select **Basic API** call (JavaScript).
+
+1.8 In the **Run** pane, select the same.
+
+1.9 Select a matrix of several cells and click the **Run Code** button.
+
+Observations:
+
+-   The cells selected should be highlighted in yellow.
+
+-   Review the code in the Code pane.
+
+Notice the Excel.run() invocation
+
+```
+$("#run").click(run);
+
+async function run() {
+    Excel.run(function (context) {
+        var range = context.workbook.getSelectedRange();
+        range.format.fill.color = "yellow";
+        range.load("address");
+        return context.sync()
+            .then(function() {
+                console.log("The range address was \"" + range.address + "\".");
+            });
+    })
+        .catch(function(error) {
+            OfficeHelpers.UI.notify(error);
+            OfficeHelpers.Utilities.log(error);
+        });
+}
+
+```
+Note the context.sync() and .then pattern. Asynchronous code must always
+return a Promise.
+
+Notice the output from the console.log() call on line 11 on the Firebug
+Console tab.
+
+Adding some functionality:
+
+You can now edit the Basic API call (JavaScript) sample code and it will save it to your snippets.
+
+1.10 Using the Script Lab code editor, modify the code to populate the cells with increasing numbers starting at 1.
+
+For example, if four cells are selected,
+
+1 2
+
+3 4
+
+Hints:
+
+-   Use the .values property of the Range object.
+
+-   Remember to load "values" first and then sync.
+
+-   Fewer calls to context.sync mean fewer calls to the
+    Office application.
+
+-   If you use another function to populate, remember to pass in the
+    context as well as the range.
+
+-   If you get stuck, look at the other sample snippets for ideas.
+
+1.11 Once satisfied, run it to show the populated cells.
+
+1.12 Now you have a modified version of the Basic API call (JavaScript) sample code in "MySnippets"
+Navigate to see that it's there.
+
+This modified code in MySnippets will only remain in the add-in memory
+until you clear your browser cache. We'll discuss saving and sharing the
+code in another lesson.
+
+## Answers
+
+1.10 Modified code to populate the range
+
+```
+$("#run").click(run);
+
+function run() {
+    Excel.run(function (context) {
+        var range = context.workbook.getSelectedRange();
+        range.format.fill.color = "yellow";
+        range.load([ "address", "values"]);
+        return context.sync()
+            .then(function () {
+                console.log("The range address was \"" + range.address + "\".");
+                return populateRange(context, range);
+
+            });
+
+    })
+        .catch(function (error) {
+            OfficeHelpers.UI.notify(error);
+            OfficeHelpers.Utilities.log(error);
+        });
+}
+
+function populateRange(context: Excel.RequestContext, range: Excel.Range) {
+    console.log("populateRange: range is - ", range.address);
+            var newValues = range.values;
+            var counter = 1;
+            for (var i = 0; i < newValues.length; i++) {
+                for (var j = 0; j < newValues[i].length; j++) {
+                    newValues[i][j] = counter++;
+                }
+            }
+            range.values = newValues;
+
+            return context.sync()
+	    .then(function () {
+			    console.log("finished populating the matrix");
+			    });
+}
+```
