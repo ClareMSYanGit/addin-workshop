@@ -12,9 +12,9 @@ To prepare for this lesson, do a simple modification to the code from Lesson 1.
 
 Hints:
 
-- A function must be declared with the "async" modifier if await is called inside.
+- A function must be declared with the ```async``` modifier if ```await``` is called inside.
 
-- "await" replaces the return and .then wrapper around the completion code.
+- ```await``` replaces the return and ```.then``` wrapper around the completion code.
 
 - All TypeScript types and libraries have already been included, check them out on the Libraries tab.
 

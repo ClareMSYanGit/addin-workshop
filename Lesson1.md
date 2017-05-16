@@ -30,7 +30,6 @@ Observations:
 -   Review the code in the Code pane.
 
 Notice the Excel.run() invocation
-
 ``` 
 
 $("#run").click(run);
