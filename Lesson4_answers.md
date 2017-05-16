@@ -1,6 +1,6 @@
 # Lesson 4 Answers
 
-4.0.1 programmatic check for API set 1.6
+4.0.1 Programmatically check for API set 1.6.
 
 ```
 if (Office.context.requirements.isSetSupported('ExcelApi', 1.6) === true) {
@@ -11,7 +11,7 @@ else {
 }
 ```
 
-4.1 Recalculate
+4.1 Recalculate!
 
 ```
 async function recalculate() {
@@ -39,7 +39,7 @@ async function recalculate() {
 }
 ```
 
-4.2 Add conditional formatting
+4.2 Add conditional formatting.
 
 ```
 async function recalculate() {

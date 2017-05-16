@@ -38,7 +38,7 @@ Observation: "Add sample data" is a button element with id="setup" and this is h
 
 Now add a button and handler to create a Grand Total under the Total Price column. For this, use the sum formula.
 
-2.5 Add another button with a label of "Grand Total"
+2.5 Add another button with a label of "Grand Total".
 
 2.6 Add code to total the Total Price column and put the result in E7 (below the last entry). Also add the label "Grand Total" in B7.
 
