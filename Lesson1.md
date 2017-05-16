@@ -7,7 +7,7 @@
 
 1.2 Go to Insert > My Add-ins > the Store icon (red shopping bag).
 
-1.3 Search for "Script Lab" (with a space).
+1.3 Search for "Script Lab".
 
 1.4 Click **Add**.
 
@@ -35,7 +35,7 @@ Notice the Excel.run() invocation
 ```
 $("#run").click(run);
 
-async function run() {
+function run() {
     Excel.run(function (context) {
         var range = context.workbook.getSelectedRange();
         range.format.fill.color = "yellow";
@@ -66,22 +66,14 @@ You can now edit the Basic API call (JavaScript) sample code and it will save it
 
 For example, if four cells are selected,
 
-1 2
-
-3 4
+![alt text](https://github.com/ClareMSYanGit/addin-workshop/blob/Draft0516/Image1_lesson1.png)
 
 Hints:
 
 -   Use the .values property of the Range object.
-
 -   Remember to load "values" first and then sync.
-
--   Fewer calls to context.sync mean fewer calls to the
-    Office application.
-
--   If you use another function to populate, remember to pass in the
-    context as well as the range.
-
+-   Fewer calls to context.sync mean fewer calls to the Office application.
+-   If you use another function to populate, remember to pass in the context as well as the range.
 -   If you get stuck, look at the other sample snippets for ideas.
 
 1.11 Once satisfied, run it to show the populated cells.
