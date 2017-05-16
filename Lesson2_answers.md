@@ -23,6 +23,7 @@ async function run() {
             OfficeHelpers.Utilities.log(error);
         }
 }
+
 async function populateRange(context: Excel.RequestContext, range: Excel.Range) {
     console.log("populateRange: range is - ", range.address);
     var newValues = range.values;
@@ -44,6 +45,7 @@ async function populateRange(context: Excel.RequestContext, range: Excel.Range) 
 2.5 Grand Total button
 
 ```
+// Added this block of code
 <button id="grand-total" class="ms-Button">
         <span class="ms-Button-label">Grand Total</span>
 </button>

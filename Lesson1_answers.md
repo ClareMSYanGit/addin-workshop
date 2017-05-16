@@ -14,7 +14,7 @@ function run() {
         return context.sync()
             .then(function () {
                 console.log("The range address was \"" + range.address + "\".");
-                return populateRange(context, range);
+                return populateRange(context, range); // Added this line of code
 
             });
 
@@ -25,6 +25,7 @@ function run() {
         });
 }
 
+// Added the following code block
 function populateRange(context: Excel.RequestContext, range: Excel.Range) {
     console.log("populateRange: range is - ", range.address);
             var newValues = range.values;

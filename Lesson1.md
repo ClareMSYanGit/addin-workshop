@@ -27,7 +27,6 @@
 Observations:
 
 -   The cells selected should be highlighted in yellow.
-
 -   Review the code in the Code pane.
 
 Notice the Excel.run() invocation
