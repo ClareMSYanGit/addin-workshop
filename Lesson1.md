@@ -86,10 +86,7 @@ Hints:
 
 1.11 Once satisfied, run it to show the populated cells.
 
-1.12 Now you have a modified version of the Basic API call (JavaScript) sample code in "MySnippets"
-Navigate to see that it's there.
+1.12 Now you have a modified version of the Basic API call (JavaScript) sample code in "MySnippets". Navigate to see that it's there.
 
-This modified code in MySnippets will only remain in the add-in memory
-until you clear your browser cache. We'll discuss saving and sharing the
-code in another lesson.
+This modified code in MySnippets will only remain in the add-in memory until you clear your browser cache. We'll discuss saving and sharing the code in another lesson.
 

@@ -1,4 +1,4 @@
-# Lesson 3 answers
+# Lesson 3 Answers
 
 ```
 async function createChart() {

@@ -1,9 +1,9 @@
-# Lesson 2: More Practical 
+# Lesson 2: TypeScript
 
 
 ## Prep for TypeScript
 
-To this point, you've used JavaScript to call the APIs only. You haven't
+Up to this point, you've used JavaScript to call the APIs only. You haven't
 tried TypeScript yet.
 
 To prepare for this lesson, do a simple modification to the code from Lesson 1.
@@ -12,36 +12,29 @@ To prepare for this lesson, do a simple modification to the code from Lesson 1.
 
 Hints:
 
-- A function must be declared with "async" modifier if await is called
-inside.
+- A function must be declared with the "async" modifier if await is called inside.
 
-- await replaces the return and .then wrapper around the completion
-code.
+- "await" replaces the return and .then wrapper around the completion code.
 
-- All TypeScript types and libraries have already been included, check
-it out on the Libraries tab.
+- All TypeScript types and libraries have already been included, check them out on the Libraries tab.
 
 2.0.2 Make sure that the code runs successfully as it did in Lesson 1.
 
-Now let's switch gears, start with a new sample snippet and this time
-add some more realistic functionality.
+Now let's switch gears. Start with a new sample snippet and this time add some more realistic functionality.
 
 ## Setup
 
+2.1 Navigate and open the sample called "Copy and multiply values".
 
-2.1 Navigate and open the sample called "Copy and multiply values"
+Observation: You can see that this is a TypeScript example. Note the await/async pattern and how much more readable this is.
 
-Observation: you can see that this is a TypeScript example. Note the await/async pattern and how much more readable this is.
+2.2 Refresh the content in the Run pane and click the **Add sample data** button to see data inserted into the sheet.
 
-2.2 Refresh the content in the Run pane and hit the "Add sample data" button to see data inserted into the sheet.
-
-2.3 Switch to the Template tab to see the HTML which drives the UI
+2.3 Switch to the Template tab to see the HTML that drives the UI
 
 Observation: "Add sample data" is a button element with id="setup" and this is hooked up with the click handler called setup().
 
-2.4 Look at the code and study what each button's function is. 
-
-Try the one labeled, "Multiply values using for loop". Pretty straight forward, right?
+2.4 Look at the HTML code and study what each button's function is. Back in the **Run** pane, try the one labeled, "Multiply values using for loop". Pretty straight forward, right?
 
 Now add a button and handler to create a Grand Total under the Total Price column. For this, use the sum formula.
 
@@ -58,15 +51,11 @@ addresses are 1 based.
 
 - Use the Workbook.functions.sum() method.
 
-Notice that the sum() method returns programmatically the value of the sum of the range which we add to a cell. However, typically, you'd add a formula like this: ``` "=sum(<range>)" ``` into that cell instead of the resulting value.
+Notice that the sum() method returns programmatically the value of the sum of the range, which we add to a cell. However, typically, you'd add a formula like this: ``` "=sum(<range>)" ``` into that cell instead of the resulting value.
 
-2.7 Use the range calculation API in Lesson 4 
+2.7 Use the range calculation API in Lesson 4, so let's add another value into the Grand Total row. This one should total up the Qty column but not use the workbook.function.sum() method. Instead add the "=sum()" formula into the cell for later calculation.
 
-So let's add another value into the Grand Total row. This one should
-total up the Qty column but not use the workbook.function.sum() method.
-Instead add the "=sum()" formula into the cell for later calculation.
-
-2.8 After this is successful, add another row with Tax and include that into the Grand Total amount.
+2.8 After this is successful, add another row with Tax (say B6:E6) and include that into the Grand Total amount.
 
 
 

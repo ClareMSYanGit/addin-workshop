@@ -1,23 +1,44 @@
-# Lesson 2 answers
+# Lesson 2 Answers
 
 
-2.0.1 prep
+2.0.1 Prep
 
 ```
-function run() {
-    Excel.run(async function (context) {
-        var range = context.workbook.getSelectedRange();
-        range.format.fill.color = "yellow";
-        range.load(["address", "values"]);
-        await context.sync()
-        console.log("The range address was \"" + range.address + "\".");
-        return populateRange(context, range);
-    })
-        .catch(function (error) {
+$("#run").click(run);
+ 
+async function run() {
+    try {
+ 
+        await Excel.run(async (context) => {
+            var range = context.workbook.getSelectedRange();
+            range.format.fill.color = "yellow";
+            range.load(["address", "values"]);
+            await context.sync()
+            console.log("The range address was \"" + range.address + "\".");
+            await populateRange(context, range);
+        })
+    }
+     catch (error) {
             OfficeHelpers.UI.notify(error);
             OfficeHelpers.Utilities.log(error);
-        });
+        }
 }
+async function populateRange(context: Excel.RequestContext, range: Excel.Range) {
+    console.log("populateRange: range is - ", range.address);
+    var newValues = range.values;
+    var counter = 1;
+    for (var i = 0; i < newValues.length; i++) {
+        for (var j = 0; j < newValues[i].length; j++) {
+            newValues[i][j] = counter++;
+        }
+    }
+    range.values = newValues;
+ 
+    await context.sync()
+            console.log("finished populating the matrix");
+ 
+}
+
 ```
 
 2.5 Grand Total button
