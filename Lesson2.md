@@ -30,7 +30,7 @@ Observation: You can see that this is a TypeScript example. Note the await/async
 
 2.2 Refresh the content in the Run pane and click the **Add sample data** button to see data inserted into the sheet.
 
-2.3 Switch to the Template tab to see the HTML that drives the UI
+2.3 Switch to the Template tab to see the HTML that drives the UI.
 
 Observation: "Add sample data" is a button element with id="setup" and this is hooked up with the click handler called setup().
 
@@ -45,10 +45,8 @@ Now add a button and handler to create a Grand Total under the Total Price colum
 Hints:
 
 - Use https://dev.office.com/reference/add-ins/excel/functions
-
 - Remember that the values array will index from 0, even though the Excel
 addresses are 1 based.
-
 - Use the Workbook.functions.sum() method.
 
 Notice that the sum() method returns programmatically the value of the sum of the range, which we add to a cell. However, typically, you'd add a formula like this: ``` "=sum(<range>)" ``` into that cell instead of the resulting value.

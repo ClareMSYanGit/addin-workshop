@@ -14,7 +14,7 @@
 1.5 Click on the **Script Lab** tab and see the  **Code** and **Run** commands.
 
 
-## Running the first sample
+## Running the First Sample
 
 1.6 In the **Code** pane, select **Samples**.
 
@@ -31,7 +31,8 @@ Observations:
 
 Notice the Excel.run() invocation
 
-```
+``` 
+
 $("#run").click(run);
 
 function run() {
@@ -49,7 +50,6 @@ function run() {
             OfficeHelpers.Utilities.log(error);
         });
 }
-
 ```
 Note the context.sync() and .then pattern. Asynchronous code must always
 return a Promise.
